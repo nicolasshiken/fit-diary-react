@@ -1,0 +1,31 @@
+.exercise.container {
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+}
+
+.exercise-item {
+  width: 20%;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+
+.exercise-item:first-of-type {
+  width: 40%;
+}
+
+.exercise-details {
+  text-align: center;
+  overflow-wrap: break-word;
+  width: 100%;
+  color: var(--clr-dark);
+  font-size: 15px;
+}
+/*# sourceMappingURL=exerciseSummary.css.map */

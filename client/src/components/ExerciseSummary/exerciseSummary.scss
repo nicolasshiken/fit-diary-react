@@ -1,0 +1,22 @@
+.exercise.container {
+  justify-content: space-between;
+}
+
+.exercise-item {
+  width: 20%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  &:first-of-type {
+    width: 40%;
+  }
+}
+
+.exercise-details {
+  text-align: center;
+  overflow-wrap: break-word;
+  width: 100%;
+  color: var(--clr-dark);
+  font-size: 15px;
+}

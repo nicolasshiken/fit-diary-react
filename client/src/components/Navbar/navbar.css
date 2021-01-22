@@ -1,0 +1,54 @@
+nav {
+  width: 100%;
+  padding: 0.5rem 0;
+  padding-top: 1rem;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+
+.nav-container {
+  width: 90%;
+  max-width: var(--max-width);
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+  -webkit-box-align: start;
+      -ms-flex-align: start;
+          align-items: flex-start;
+}
+
+.logo {
+  height: 125px;
+}
+
+.menu-opener {
+  background-color: var(--clr-dark);
+  height: 55px;
+  width: 55px;
+  border-radius: 50%;
+  border: 1px solid var(--clr-main);
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+
+.menu-opener img {
+  height: 33px;
+}
+/*# sourceMappingURL=navbar.css.map */

@@ -1,0 +1,35 @@
+nav {
+  width: 100%;
+  padding: 0.5rem 0;
+  padding-top: 1rem;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.nav-container {
+  width: 90%;
+  max-width: var(--max-width);
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+}
+
+.logo {
+  height: 125px;
+}
+
+.menu-opener {
+  background-color: var(--clr-dark);
+  height: 55px;
+  width: 55px;
+  border-radius: 50%;
+  border: 1px solid var(--clr-main);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  img {
+    height: 33px;
+  }
+}
