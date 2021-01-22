@@ -5,13 +5,7 @@ const sessionSchema = mongoose.Schema({
     type: String,
     default: "",
   },
-  exercises: [
-    {
-      type: mongoose.Schema.Types.ObjectId,
-      ref: "Exercise",
-      default: [],
-    },
-  ],
+  exercises: [Object],
   createdAt: {
     type: Date,
     default: Date.now,

@@ -1,7 +1,6 @@
 import React from "react";
-// import { dispatch } from "react-redux";
 import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
-import { AddSessionForm, Navbar, SessionList } from "./components";
+import { AddSession, Navbar, SessionDetails, SessionList } from "./components";
 
 function App() {
   return (
@@ -12,8 +11,13 @@ function App() {
           <Route exact path="/sessions">
             <SessionList />
           </Route>
+
           <Route exact path="/add-session">
-            <AddSessionForm />
+            <AddSession />
+          </Route>
+
+          <Route exact path="/sessions/:_id">
+            <SessionDetails />
           </Route>
         </Switch>
       </div>

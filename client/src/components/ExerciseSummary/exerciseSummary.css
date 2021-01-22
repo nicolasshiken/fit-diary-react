@@ -28,4 +28,16 @@
   color: var(--clr-dark);
   font-size: 15px;
 }
+
+.delete-btn {
+  position: absolute;
+  top: 0;
+  right: 0;
+  border: none;
+  background-color: var(--clr-white);
+}
+
+.delete-btn img {
+  height: 25px;
+}
 /*# sourceMappingURL=exerciseSummary.css.map */

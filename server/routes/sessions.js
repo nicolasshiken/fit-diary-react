@@ -1,9 +1,14 @@
 import { Router } from "express";
-import { getSessions, createSession } from "../controllers/sessions.js";
+import {
+  getSessions,
+  createSession,
+  getSession,
+} from "../controllers/sessions.js";
 
 const router = Router();
 
 router.get("/", getSessions);
-router.get("/create", createSession);
+router.post("/", createSession);
+router.get("/:id", getSession);
 
 export default router;
