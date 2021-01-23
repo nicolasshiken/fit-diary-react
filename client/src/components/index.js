@@ -1,7 +1,9 @@
-export { default as SessionList } from "./SessionList/SessionList";
-export { default as SessionSummary } from "./SessionSummary/SessionSummary";
+export { default as SessionList } from "./Sessions/SessionList/SessionList";
+export { default as SessionSummary } from "./Sessions/SessionSummary/SessionSummary";
 export { default as Navbar } from "./Navbar/Navbar";
-export { default as AddSession } from "./AddSession/AddSession";
-export { default as AddExerciseForm } from "./AddExerciseForm/AddExerciseForm";
-export { default as ExerciseSummary } from "./ExerciseSummary/ExerciseSummary";
-export { default as SessionDetails } from "./SessionDetails/SessionDetails";
+export { default as AddSession } from "./Sessions/AddSession/AddSession";
+export { default as AddExerciseForm } from "./Exercises/AddExerciseForm/AddExerciseForm";
+export { default as ExerciseSummary } from "./Exercises/ExerciseSummary/ExerciseSummary";
+export { default as SessionDetails } from "./Sessions/SessionDetails/SessionDetails";
+export { default as DemoHome } from "./DemoHome/DemoHome";
+export { default as ComingSoon } from "./ComingSoon/ComingSoon";

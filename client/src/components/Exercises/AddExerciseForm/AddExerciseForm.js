@@ -1,7 +1,8 @@
 import { useState } from "react";
 import "./addExerciseForm.css";
+import addCircle from "../../../images/add_circle.svg";
 
-const AddExerciseForm = ({ session, setSession }) => {
+const AddExerciseForm = ({ session, setSession, setError }) => {
   const [exercise, setExercise] = useState({
     name: "",
     category: "",
@@ -32,6 +33,8 @@ const AddExerciseForm = ({ session, setSession }) => {
       sets: "",
       id: null,
     });
+
+    setError(null);
   };
 
   const handleChange = (e) => {
@@ -94,7 +97,10 @@ const AddExerciseForm = ({ session, setSession }) => {
           />
         </div>
       </div>
-      <button type="submit" className="add-btn"></button>
+      <button type="submit" className="add-btn">
+        <img src={addCircle} alt="Agregar" />
+        <p>Agregar ejercicio</p>
+      </button>
     </form>
   );
 };

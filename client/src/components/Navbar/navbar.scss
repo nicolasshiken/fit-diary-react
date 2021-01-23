@@ -33,3 +33,57 @@ nav {
     height: 33px;
   }
 }
+
+.nav-opened {
+  position: absolute;
+  top: 0;
+  height: 100%;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  z-index: 9999;
+  background-color: rgba(0, 0, 0, 0.5);
+  transform: scale(1, 0);
+  transform-origin: top;
+  transition: transform 300ms 200ms;
+}
+
+.nav-row {
+  display: flex;
+}
+
+.nav-item {
+  height: 100px;
+  width: 100px;
+  border: 1px solid var(--clr-main);
+  background-color: var(--clr-dark);
+  border-radius: 50%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  text-transform: uppercase;
+  text-decoration: none;
+  color: var(--clr-main);
+  text-align: center;
+  margin-right: 8px;
+  font-size: 15px;
+  transform: scale(0);
+  transition: transform 150ms 0ms;
+
+  &:last-of-type {
+    margin: 0;
+  }
+}
+
+.show {
+  transform: scale(1);
+  transform-origin: bottom;
+  transition: transform 250ms;
+
+  .nav-item {
+    transform: scale(1);
+    transition: transform 150ms 250ms;
+  }
+}

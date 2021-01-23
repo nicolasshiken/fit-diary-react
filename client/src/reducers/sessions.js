@@ -1,13 +1,11 @@
-import { CREATE, FETCH_ALL, FETCH_ONE } from "../constants/actionTypes";
+import { CREATE, DELETE } from "../constants/actionTypes";
 
 const sessionReducer = (sessions = [], action) => {
   switch (action.type) {
-    case FETCH_ALL:
-      return action.payload;
     case CREATE:
       return [...sessions, action.payload];
-    case FETCH_ONE:
-      return action.payload;
+    case DELETE:
+      return sessions.filter((session) => session._id !== action.payload);
     default:
       return sessions;
   }

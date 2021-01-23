@@ -9,6 +9,7 @@ const sessionSchema = mongoose.Schema({
   createdAt: {
     type: Date,
     default: Date.now,
+    expires: 540, // REMOVE THIS ON THE OFFICIAL SERVER
   },
 });
 

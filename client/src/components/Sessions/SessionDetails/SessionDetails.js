@@ -1,8 +1,8 @@
+import { url } from "../../../api";
 import moment from "moment";
-import { url } from "../../api";
 import { useParams } from "react-router-dom";
-import useFetch from "../../hooks/useFetch";
-import { ExerciseSummary } from "../";
+import { ExerciseSummary } from "../../";
+import useFetch from "../../../hooks/useFetch";
 
 const SessionDetails = () => {
   const { _id } = useParams();
@@ -12,13 +12,17 @@ const SessionDetails = () => {
 
   return (
     <>
-      {error && <p>{error}</p>}
-      {isPending && <p>Loading...</p>}
+      {error && <div>{error}</div>}
+      {isPending && (
+        <div className="main-container">
+          <h1 className="main-title"> Cargando sesión...</h1>
+        </div>
+      )}
       {session && (
         <>
-          {session.name && <h1 className="list-title">{session.name}</h1>}
+          {session.name && <h1 className="main-title">{session.name}</h1>}
           {!session.name && (
-            <h1 className="list-title">
+            <h1 className="main-title">
               Sesión del {moment(session.createdAt).format("D/MM")}
             </h1>
           )}

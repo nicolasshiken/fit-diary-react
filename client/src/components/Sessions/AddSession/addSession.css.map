@@ -2,8 +2,8 @@
     "version": 3,
     "mappings": "",
     "sources": [
-        "addSessionForm.scss"
+        "addSession.scss"
     ],
     "names": [],
-    "file": "addSessionForm.css"
+    "file": "addSession.css"
 }

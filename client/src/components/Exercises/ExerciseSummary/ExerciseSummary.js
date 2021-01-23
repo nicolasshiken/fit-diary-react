@@ -1,5 +1,5 @@
 import "./exerciseSummary.css";
-import deleteBtn from "../../images/delete.svg";
+import deleteBtn from "../../../images/delete.svg";
 
 const ExerciseSummary = ({
   name,

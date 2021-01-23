@@ -1,14 +1,5 @@
-import { CREATE, FETCH_ALL, FETCH_ONE } from "../constants/actionTypes";
+import { CREATE, DELETE } from "../constants/actionTypes";
 import * as api from "../api";
-
-export const getSessions = () => async (dispatch) => {
-  try {
-    const { data } = await api.fetchSessions();
-    dispatch({ type: FETCH_ALL, payload: data });
-  } catch (error) {
-    console.log(error);
-  }
-};
 
 export const createSession = (session) => async (dispatch) => {
   try {
@@ -19,9 +10,12 @@ export const createSession = (session) => async (dispatch) => {
   }
 };
 
-export const getSession = () => async (dispatch) => {
+export const deleteSession = (_id) => async (dispatch) => {
   try {
-    const { data } = await api.fetchSession();
-    dispatch({ type: FETCH_ONE, payload: data });
-  } catch (error) {}
+    await api.deleteSession(_id);
+
+    dispatch({ type: DELETE, payload: _id });
+  } catch (error) {
+    console.log(error);
+  }
 };
