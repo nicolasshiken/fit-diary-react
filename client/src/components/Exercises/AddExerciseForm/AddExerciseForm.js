@@ -1,29 +1,44 @@
-import { useState } from "react";
 import "./addExerciseForm.css";
 import addCircle from "../../../images/add_circle.svg";
+import { useEffect } from "react";
 
-const AddExerciseForm = ({ session, setSession, setError }) => {
-  const [exercise, setExercise] = useState({
-    name: "",
-    category: "",
-    weight: "",
-    amount: "",
-    sets: "",
-    id: null,
-  });
-
+const AddExerciseForm = ({
+  session,
+  setSession,
+  setError,
+  currentId,
+  setCurrentId,
+  exercise,
+  setExercise,
+}) => {
   const handleSubmit = (e) => {
     e.preventDefault();
 
-    const newExercise = {
-      ...exercise,
-      id: Math.random(),
-    };
+    if (currentId) {
+      const updatedExercises = session.exercises.filter(
+        (exercise) => exercise.id !== currentId
+      );
 
-    setSession({
-      ...session,
-      exercises: [...session.exercises, newExercise],
-    });
+      const newExercise = {
+        ...exercise,
+        id: Math.random(),
+      };
+
+      setSession({
+        ...session,
+        exercises: [...updatedExercises, newExercise],
+      });
+    } else {
+      const newExercise = {
+        ...exercise,
+        id: Math.random(),
+      };
+
+      setSession({
+        ...session,
+        exercises: [...session.exercises, newExercise],
+      });
+    }
 
     setExercise({
       name: "",
@@ -35,11 +50,21 @@ const AddExerciseForm = ({ session, setSession, setError }) => {
     });
 
     setError(null);
+    setCurrentId(null);
   };
 
   const handleChange = (e) => {
     setExercise({ ...exercise, [e.target.name]: e.target.value });
   };
+  useEffect(() => {
+    if (currentId) {
+      const exerciseToEdit = session.exercises.find(
+        (exercise) => exercise.id === currentId
+      );
+      setExercise(exerciseToEdit);
+    }
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [currentId]);
 
   return (
     <form onSubmit={handleSubmit}>
@@ -97,10 +122,13 @@ const AddExerciseForm = ({ session, setSession, setError }) => {
           />
         </div>
       </div>
-      <button type="submit" className="add-btn">
-        <img src={addCircle} alt="Agregar" />
-        <p>Agregar ejercicio</p>
-      </button>
+      {currentId && <p className="error">Finalizar edición</p>}
+      {!currentId && (
+        <button type="submit" className="add-btn">
+          <img src={addCircle} alt="Agregar" />
+          <p>Agregar ejercicio</p>
+        </button>
+      )}
     </form>
   );
 };

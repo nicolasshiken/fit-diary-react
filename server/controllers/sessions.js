@@ -46,3 +46,20 @@ export const deleteSession = async (req, res) => {
 
   res.json({ message: "Session was successfully deleted" });
 };
+
+export const updateSession = async (req, res) => {
+  const { id: _id } = req.params;
+  const session = req.body;
+
+  if (!mongoose.Types.ObjectId.isValid(_id)) {
+    return res.status(404).send("No session with that ID was found");
+  }
+
+  const updatedSession = await Session.findByIdAndUpdate(
+    _id,
+    { ...session, _id },
+    { new: true }
+  );
+
+  res.json(updatedSession);
+};

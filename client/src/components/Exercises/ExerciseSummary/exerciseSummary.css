@@ -29,15 +29,19 @@
   font-size: 15px;
 }
 
-.delete-btn {
+.exercise-btn-container {
   position: absolute;
   top: 0;
   right: 0;
-  border: none;
-  background-color: var(--clr-white);
 }
 
-.delete-btn img {
-  height: 25px;
+.exercise-btn-container img {
+  height: 20px;
+}
+
+.exercise-btn-container button {
+  border: none;
+  background-color: var(--clr-white);
+  margin-right: 0.5rem;
 }
 /*# sourceMappingURL=exerciseSummary.css.map */

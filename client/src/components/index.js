@@ -7,3 +7,4 @@ export { default as ExerciseSummary } from "./Exercises/ExerciseSummary/Exercise
 export { default as SessionDetails } from "./Sessions/SessionDetails/SessionDetails";
 export { default as DemoHome } from "./DemoHome/DemoHome";
 export { default as ComingSoon } from "./ComingSoon/ComingSoon";
+export { default as EditSession } from "./Sessions/EditSession/EditSession";

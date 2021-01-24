@@ -6,11 +6,6 @@ const sessionSchema = mongoose.Schema({
     default: "",
   },
   exercises: [Object],
-  createdAt: {
-    type: Date,
-    default: Date.now,
-    expires: 540, // REMOVE THIS ON THE OFFICIAL SERVER
-  },
 });
 
 const Session = mongoose.model("Session", sessionSchema);

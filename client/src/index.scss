@@ -147,4 +147,9 @@ body {
 .error {
   color: var(--clr-main);
   text-shadow: var(--txt-shadow);
+  margin: 1rem 0;
+}
+
+.btn-small {
+  height: 20px;
 }

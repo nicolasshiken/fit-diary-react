@@ -1,5 +1,6 @@
-import React from "react";
+import React, { useEffect } from "react";
 import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
+import { useDispatch } from "react-redux";
 import {
   AddSession,
   Navbar,
@@ -8,8 +9,15 @@ import {
   DemoHome,
   ComingSoon,
 } from "./components";
+import { getSessions } from "./actions/sessions";
 
 function App() {
+  const dispatch = useDispatch();
+
+  useEffect(() => {
+    dispatch(getSessions());
+  }, [dispatch]);
+
   return (
     <Router>
       <Navbar />

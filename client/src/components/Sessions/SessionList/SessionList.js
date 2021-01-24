@@ -1,11 +1,10 @@
 import { Link } from "react-router-dom";
-import { url } from "../../../api";
 import { SessionSummary } from "../../";
-import useFetch from "../../../hooks/useFetch";
 import addCircle from "../../../images/add_circle.svg";
+import { useSelector } from "react-redux";
 
 const SessionList = () => {
-  const { data: sessions, isPending, error } = useFetch(`${url}/sessions`);
+  const sessions = useSelector((state) => state.sessions);
 
   return (
     <>
@@ -14,12 +13,6 @@ const SessionList = () => {
         <img src={addCircle} alt="Agregar" />
       </Link>
       <div className="list-container">
-        {error && <div>{error}</div>}
-        {isPending && (
-          <div className="main-container">
-            <h1 className="main-title">Cargando sesiones...</h1>
-          </div>
-        )}
         {sessions &&
           sessions.map((session) => (
             <SessionSummary

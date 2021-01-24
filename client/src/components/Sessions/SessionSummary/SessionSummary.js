@@ -3,7 +3,7 @@ import { Link } from "react-router-dom";
 import moment from "moment";
 import { deleteSession } from "../../../actions/sessions";
 import "./sessionSummary.css";
-import editImage from "../../../images/edit.svg";
+
 import deleteImage from "../../../images/delete.svg";
 
 const SessionSummary = ({ createdAt, name, id }) => {
@@ -13,8 +13,6 @@ const SessionSummary = ({ createdAt, name, id }) => {
     if (window.confirm("Seguro desea eliminar esta sesión?"))
       dispatch(deleteSession(_id));
   };
-
-  const handleEdit = (_id) => {};
 
   return (
     <div className="container">
@@ -27,9 +25,6 @@ const SessionSummary = ({ createdAt, name, id }) => {
         )}
       </Link>
       <div className="session-summary-buttons">
-        <Link to={`/sessions/${id}/edit`}>
-          <img src={editImage} alt="Edit" onClick={() => handleEdit(id)} />
-        </Link>
         <img src={deleteImage} alt="Delete" onClick={() => handleDelete(id)} />
       </div>
     </div>

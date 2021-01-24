@@ -1,21 +1,28 @@
 import { useState } from "react";
-import { useHistory } from "react-router-dom";
+import { useHistory, Link } from "react-router-dom";
 import { useDispatch } from "react-redux";
 import { AddExerciseForm, ExerciseSummary } from "../../";
 import { createSession } from "../../../actions/sessions";
 import "./addSession.css";
 
-const AddSession = ({ title }) => {
+const AddSession = () => {
   const history = useHistory();
+  const dispatch = useDispatch();
 
   const [error, setError] = useState("");
-
+  const [currentId, setCurrentId] = useState(null);
   const [session, setSession] = useState({
     name: "",
     exercises: [],
   });
-
-  const dispatch = useDispatch();
+  const [exercise, setExercise] = useState({
+    name: "",
+    category: "",
+    weight: "",
+    amount: "",
+    sets: "",
+    id: null,
+  });
 
   const handleCreate = () => {
     if (session.exercises.length !== 0) {
@@ -29,28 +36,39 @@ const AddSession = ({ title }) => {
     <>
       <h1 className="main-title">Agregar sesión de entrenamiento</h1>
       <div className="list-container">
-        {session.exercises.map((exercise) => (
-          <ExerciseSummary
-            key={exercise.id}
-            id={exercise.id}
-            ableToDelete={true}
-            name={exercise.name}
-            weight={exercise.weight}
-            amount={exercise.amount}
-            sets={exercise.sets}
-            setSession={setSession}
-            session={session}
-          />
-        ))}
+        {session &&
+          session.exercises.map((exercise) => (
+            <ExerciseSummary
+              key={exercise.id}
+              id={exercise.id}
+              ableToDelete={true}
+              name={exercise.name}
+              weight={exercise.weight}
+              amount={exercise.amount}
+              sets={exercise.sets}
+              setSession={setSession}
+              session={session}
+              setCurrentId={setCurrentId}
+              exercise={exercise}
+              setExercise={setExercise}
+            />
+          ))}
         <AddExerciseForm
           session={session}
           setSession={setSession}
           setError={setError}
+          currentId={currentId}
+          setCurrentId={setCurrentId}
+          exercise={exercise}
+          setExercise={setExercise}
         />
         {error && <p className="error">{error}</p>}
         <button className="cta" onClick={handleCreate}>
           FINALIZAR
         </button>
+        <Link to="/sessions" className="error">
+          Cancelar.
+        </Link>
       </div>
     </>
   );

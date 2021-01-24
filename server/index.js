@@ -31,3 +31,4 @@ mongoose
   .catch((error) => console.log(error));
 
 mongoose.set("useFindAndModify", false);
+mongoose.set("useCreateIndex", true);
