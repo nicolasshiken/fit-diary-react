@@ -101,6 +101,20 @@ body {
   justify-content: center;
 }
 
+.container-buttons {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: absolute;
+  top: 0.5rem;
+  right: 0;
+
+  img {
+    height: 20px;
+    margin-right: 0.5rem;
+  }
+}
+
 .container-title {
   color: var(--clr-dark);
   text-align: center;
@@ -152,4 +166,54 @@ body {
 
 .btn-small {
   height: 20px;
+}
+
+form {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  margin: 0.5rem auto;
+}
+
+.form-row {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 100%;
+  margin: 0.5rem 0;
+}
+
+.form-row-item {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  flex-grow: 1;
+  margin-left: 8px;
+
+  &:first-of-type {
+    margin-left: 0;
+  }
+
+  label {
+    color: var(--clr-white);
+    text-shadow: var(--txt-shadow);
+    font-size: 20px;
+    width: 100%;
+  }
+
+  input {
+    border-radius: var(--border-raduis);
+    outline: none;
+    border: none;
+    height: 30px;
+    filter: var(--drop-shadow);
+    padding: 0 8px;
+    width: 100%;
+  }
+
+  .small {
+    font-size: 15px;
+  }
 }

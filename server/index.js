@@ -4,6 +4,7 @@ import mongoose from "mongoose";
 import cors from "cors";
 import dotenv from "dotenv";
 import sessionRoutes from "./routes/sessions.js";
+import mealRoutes from "./routes/meals.js";
 
 const app = express();
 dotenv.config();
@@ -11,7 +12,9 @@ dotenv.config();
 app.use(bodyParser.json({ limit: "30mb", extended: true }));
 app.use(bodyParser.urlencoded({ limit: "30mb", extended: true }));
 app.use(cors());
+
 app.use("/sessions", sessionRoutes);
+app.use("/meals", mealRoutes);
 
 app.get("/", (req, res) => {
   res.send("Hello to FIT Diary API");

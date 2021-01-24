@@ -56,6 +56,7 @@ const AddExerciseForm = ({
   const handleChange = (e) => {
     setExercise({ ...exercise, [e.target.name]: e.target.value });
   };
+
   useEffect(() => {
     if (currentId) {
       const exerciseToEdit = session.exercises.find(
@@ -63,8 +64,7 @@ const AddExerciseForm = ({
       );
       setExercise(exerciseToEdit);
     }
-    // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, [currentId]);
+  }, [currentId, session.exercises, setExercise]);
 
   return (
     <form onSubmit={handleSubmit}>
@@ -122,7 +122,7 @@ const AddExerciseForm = ({
           />
         </div>
       </div>
-      {currentId && <p className="error">Finalizar edición</p>}
+      {currentId && <button className="cta">Editar</button>}
       {!currentId && (
         <button type="submit" className="add-btn">
           <img src={addCircle} alt="Agregar" />

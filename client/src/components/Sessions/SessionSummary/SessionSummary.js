@@ -2,7 +2,6 @@ import { useDispatch } from "react-redux";
 import { Link } from "react-router-dom";
 import moment from "moment";
 import { deleteSession } from "../../../actions/sessions";
-import "./sessionSummary.css";
 
 import deleteImage from "../../../images/delete.svg";
 
@@ -24,7 +23,7 @@ const SessionSummary = ({ createdAt, name, id }) => {
           </h2>
         )}
       </Link>
-      <div className="session-summary-buttons">
+      <div className="container-buttons">
         <img src={deleteImage} alt="Delete" onClick={() => handleDelete(id)} />
       </div>
     </div>

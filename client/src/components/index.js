@@ -8,3 +8,6 @@ export { default as SessionDetails } from "./Sessions/SessionDetails/SessionDeta
 export { default as DemoHome } from "./DemoHome/DemoHome";
 export { default as ComingSoon } from "./ComingSoon/ComingSoon";
 export { default as EditSession } from "./Sessions/EditSession/EditSession";
+export { default as MealList } from "./Meals/MealList/MealList";
+export { default as AddMeal } from "./Meals/AddMeal/AddMeal";
+export { default as MealSummary } from "./Meals/MealSummary/MealSummary";

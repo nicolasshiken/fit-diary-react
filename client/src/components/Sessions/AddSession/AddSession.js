@@ -3,7 +3,6 @@ import { useHistory, Link } from "react-router-dom";
 import { useDispatch } from "react-redux";
 import { AddExerciseForm, ExerciseSummary } from "../../";
 import { createSession } from "../../../actions/sessions";
-import "./addSession.css";
 
 const AddSession = () => {
   const history = useHistory();
@@ -63,9 +62,11 @@ const AddSession = () => {
           setExercise={setExercise}
         />
         {error && <p className="error">{error}</p>}
-        <button className="cta" onClick={handleCreate}>
-          FINALIZAR
-        </button>
+        {!currentId && (
+          <button className="cta" onClick={() => handleCreate()}>
+            Finalizar
+          </button>
+        )}
         <Link to="/sessions" className="error">
           Cancelar.
         </Link>

@@ -8,14 +8,18 @@ import {
   SessionList,
   DemoHome,
   ComingSoon,
+  AddMeal,
+  MealList,
 } from "./components";
 import { getSessions } from "./actions/sessions";
+import { getMeals } from "./actions/meals";
 
 function App() {
   const dispatch = useDispatch();
 
   useEffect(() => {
     dispatch(getSessions());
+    dispatch(getMeals());
   }, [dispatch]);
 
   return (
@@ -39,16 +43,16 @@ function App() {
             <SessionDetails />
           </Route>
 
-          {/* Coming soon */}
-          <Route exact path="/profile">
-            <ComingSoon />
-          </Route>
-
           <Route exact path="/add-meal">
-            <ComingSoon />
+            <AddMeal />
           </Route>
 
           <Route exact path="/meals">
+            <MealList />
+          </Route>
+
+          {/* Coming soon */}
+          <Route exact path="/profile">
             <ComingSoon />
           </Route>
         </Switch>

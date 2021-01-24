@@ -1,10 +1,15 @@
-import { FETCH_ALL, CREATE, DELETE, UPDATE } from "../constants/actionTypes";
+import {
+  FETCH_SESSIONS,
+  CREATE_SESSION,
+  DELETE_SESSION,
+  UPDATE_SESSION,
+} from "../constants/actionTypes";
 import * as api from "../api";
 
 export const getSessions = () => async (dispatch) => {
   try {
     const { data } = await api.fetchSessions();
-    dispatch({ type: FETCH_ALL, payload: data });
+    dispatch({ type: FETCH_SESSIONS, payload: data });
   } catch (error) {
     console.log(error);
   }
@@ -13,7 +18,7 @@ export const getSessions = () => async (dispatch) => {
 export const createSession = (session) => async (dispatch) => {
   try {
     const { data } = await api.createSession(session);
-    dispatch({ type: CREATE, payload: data });
+    dispatch({ type: CREATE_SESSION, payload: data });
   } catch (error) {
     console.log(error);
   }
@@ -23,7 +28,7 @@ export const deleteSession = (_id) => async (dispatch) => {
   try {
     await api.deleteSession(_id);
 
-    dispatch({ type: DELETE, payload: _id });
+    dispatch({ type: DELETE_SESSION, payload: _id });
   } catch (error) {
     console.log(error);
   }
@@ -32,7 +37,7 @@ export const deleteSession = (_id) => async (dispatch) => {
 export const updateSession = (_id, session) => async (dispatch) => {
   try {
     const { data } = await api.updateSession(_id, session);
-    dispatch({ type: UPDATE, payload: data });
+    dispatch({ type: UPDATE_SESSION, payload: data });
   } catch (error) {
     console.log(error);
   }

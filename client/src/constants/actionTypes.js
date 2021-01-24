@@ -1,4 +1,11 @@
-export const CREATE = "CREATE";
-export const DELETE = "DELETE";
-export const UPDATE = "UPDATE";
-export const FETCH_ALL = "FETCH_ALL";
+// SESSIONS
+export const CREATE_SESSION = "CREATE_SESSION";
+export const FETCH_SESSIONS = "FETCH_SESSIONS";
+export const UPDATE_SESSION = "UPDATE_SESSIONS";
+export const DELETE_SESSION = "DELETE_SESSIONS";
+
+// MEALS
+export const CREATE_MEAL = "CREATE_MEAL";
+export const FETCH_MEALS = "FETCH_MEAL";
+export const UPDATE_MEAL = "UPDATE_MEAL";
+export const DELETE_MEAL = "DELETE_MEAL";

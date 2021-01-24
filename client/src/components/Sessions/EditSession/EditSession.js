@@ -28,7 +28,7 @@ const EditSession = ({ session, setEditing }) => {
   };
 
   const handleCancel = () => {
-    setEditing(false);
+    currentId ? setCurrentId(false) : setEditing(false);
   };
 
   return (
@@ -62,12 +62,14 @@ const EditSession = ({ session, setEditing }) => {
           setExercise={setExercise}
         />
         {error && <p className="error">{error}</p>}
-        <button
-          className="cta"
-          onClick={() => handleUpdate(session._id, updatedSession)}
-        >
-          Finalizar
-        </button>
+        {!currentId && (
+          <button
+            className="cta"
+            onClick={() => handleUpdate(session._id, updatedSession)}
+          >
+            Finalizar
+          </button>
+        )}
         <p className="error" onClick={() => handleCancel()}>
           Cancelar
         </p>
