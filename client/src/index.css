@@ -263,7 +263,8 @@ form {
   width: 100%;
 }
 
-.form-row-item input {
+.form-row-item input,
+.form-row-item select {
   border-radius: var(--border-raduis);
   outline: none;
   border: none;
@@ -272,6 +273,11 @@ form {
           filter: var(--drop-shadow);
   padding: 0 8px;
   width: 100%;
+}
+
+.form-row-item input.warning,
+.form-row-item select.warning {
+  border: 1px solid red;
 }
 
 .form-row-item .small {

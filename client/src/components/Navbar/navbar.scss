@@ -71,10 +71,6 @@ nav {
   font-size: 15px;
   transform: scale(0);
   transition: transform 150ms 0ms;
-
-  &:last-of-type {
-    margin: 0;
-  }
 }
 
 .show {

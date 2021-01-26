@@ -10,17 +10,21 @@ import {
   ComingSoon,
   AddMeal,
   MealList,
+  Auth,
 } from "./components";
 import { getSessions } from "./actions/sessions";
 import { getMeals } from "./actions/meals";
 
 function App() {
+  const user = JSON.parse(localStorage.getItem("profile"));
   const dispatch = useDispatch();
 
   useEffect(() => {
-    dispatch(getSessions());
-    dispatch(getMeals());
-  }, [dispatch]);
+    if (user?.result?.name) {
+      dispatch(getSessions());
+      dispatch(getMeals());
+    }
+  }, [dispatch, user?.result?.name]);
 
   return (
     <Router>
@@ -49,6 +53,10 @@ function App() {
 
           <Route exact path="/meals">
             <MealList />
+          </Route>
+
+          <Route exact path="/auth">
+            <Auth />
           </Route>
 
           {/* Coming soon */}

@@ -1,6 +1,6 @@
 import { useDispatch } from "react-redux";
 import { Link } from "react-router-dom";
-import moment from "moment";
+import dayjs from "dayjs";
 import { deleteSession } from "../../../actions/sessions";
 
 import deleteImage from "../../../images/delete.svg";
@@ -19,7 +19,7 @@ const SessionSummary = ({ createdAt, name, id }) => {
         {name && <h2 className="container-title">{name}</h2>}
         {!name && (
           <h2 className="container-title">
-            Sesión del {moment(createdAt).format("D/MM")}
+            Sesión del {dayjs(createdAt).format("D/MM")}
           </h2>
         )}
       </Link>

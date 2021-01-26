@@ -1,13 +1,19 @@
 import { useState } from "react";
-import { Link } from "react-router-dom";
-import moment from "moment";
-import { useParams } from "react-router-dom";
+import { Link, useParams, useHistory } from "react-router-dom";
+import dayjs from "dayjs";
 import { EditSession, ExerciseSummary } from "../../";
 import editImage from "../../../images/edit.svg";
 import "./sessionDetails.css";
 import { useSelector } from "react-redux";
 
 const SessionDetails = () => {
+  const history = useHistory();
+  const user = JSON.parse(localStorage.getItem("profile"));
+
+  if (!user) {
+    history.push("/auth");
+  }
+
   const { _id } = useParams();
   const [editing, setEditing] = useState(false);
 
@@ -23,7 +29,7 @@ const SessionDetails = () => {
           {session.name && <h1 className="main-title">{session.name}</h1>}
           {!session.name && (
             <h1 className="main-title">
-              Sesión del {moment(session.createdAt).format("D/MM")}
+              Sesión del {dayjs(session.createdAt).format("D/MM")}
             </h1>
           )}
           <div className="list-container">

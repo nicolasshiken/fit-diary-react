@@ -1,10 +1,18 @@
 import { useState } from "react";
 import { useDispatch } from "react-redux";
-import moment from "moment";
+import { useHistory } from "react-router-dom";
+import dayjs from "dayjs";
 import { AddExerciseForm, ExerciseSummary } from "../..";
 import { updateSession } from "../../../actions/sessions";
 
 const EditSession = ({ session, setEditing }) => {
+  const history = useHistory();
+  const user = JSON.parse(localStorage.getItem("profile"));
+
+  if (!user) {
+    history.push("/auth");
+  }
+
   const dispatch = useDispatch();
   const [updatedSession, setUpdatedSession] = useState(session);
   const [error, setError] = useState("");
@@ -34,7 +42,7 @@ const EditSession = ({ session, setEditing }) => {
   return (
     <>
       <h1 className="main-title">
-        Editando sesión del {moment(session.createdAt).format("D/MM")}
+        Editando sesión del {dayjs(session.createdAt).format("D/MM")}
       </h1>
       <div className="list-container">
         {updatedSession.exercises.map((exercise) => (

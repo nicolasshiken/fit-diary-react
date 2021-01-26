@@ -3,7 +3,9 @@ import Session from "../models/session.js";
 
 export const getSessions = async (req, res) => {
   try {
-    const sessions = await Session.find().sort({ createdAt: -1 });
+    const sessions = await Session.find({ creator: req.userId }).sort({
+      createdAt: -1,
+    });
 
     res.status(200).json(sessions);
   } catch (error) {
@@ -13,7 +15,11 @@ export const getSessions = async (req, res) => {
 
 export const createSession = async (req, res) => {
   const session = req.body;
-  const newSession = new Session(session);
+  const newSession = new Session({
+    ...session,
+    creator: req.userId,
+    createdAt: new Date().toISOString(),
+  });
   try {
     await newSession.save();
     res.status(201).json(newSession);

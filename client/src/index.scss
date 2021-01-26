@@ -203,7 +203,8 @@ form {
     width: 100%;
   }
 
-  input {
+  input,
+  select {
     border-radius: var(--border-raduis);
     outline: none;
     border: none;
@@ -211,6 +212,10 @@ form {
     filter: var(--drop-shadow);
     padding: 0 8px;
     width: 100%;
+
+    &.warning {
+      border: 1px solid red;
+    }
   }
 
   .small {

@@ -6,13 +6,14 @@ import {
   deleteMeal,
   updateMeal,
 } from "../controllers/meals.js";
+import auth from "../middleware/auth.js";
 
 const router = Router();
 
-router.get("/", getMeals);
-router.post("/", createMeal);
-router.get("/:id", getMeal);
-router.delete("/:id", deleteMeal);
-router.patch("/:id", updateMeal);
+router.get("/", auth, getMeals);
+router.post("/", auth, createMeal);
+router.get("/:id", auth, getMeal);
+router.delete("/:id", auth, deleteMeal);
+router.patch("/:id", auth, updateMeal);
 
 export default router;

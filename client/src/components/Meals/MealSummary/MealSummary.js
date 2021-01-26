@@ -1,4 +1,4 @@
-import moment from "moment";
+import dayjs from "dayjs";
 import "./mealSummary.css";
 import deleteImage from "../../../images/delete.svg";
 import { deleteMeal } from "../../../actions/meals";
@@ -15,7 +15,7 @@ const MealSummary = ({ details, id, title, date }) => {
   return (
     <div className="meal-container container">
       <h2 className="container-title">
-        {title} - {moment(date).format("DD-MM")}
+        {title} - {dayjs(date).format("DD-MM")}
       </h2>
       <p className="exercise-details">{details}</p>
       <div className="container-buttons">

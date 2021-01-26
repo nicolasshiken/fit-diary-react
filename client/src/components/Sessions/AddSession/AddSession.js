@@ -6,6 +6,12 @@ import { createSession } from "../../../actions/sessions";
 
 const AddSession = () => {
   const history = useHistory();
+  const user = JSON.parse(localStorage.getItem("profile"));
+
+  if (!user) {
+    history.push("/auth");
+  }
+
   const dispatch = useDispatch();
 
   const [error, setError] = useState("");

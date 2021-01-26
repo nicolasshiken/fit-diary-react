@@ -1,17 +1,22 @@
 import { Link, useHistory } from "react-router-dom";
 import { useDispatch } from "react-redux";
 import { useState } from "react";
-import moment from "moment";
+import dayjs from "dayjs";
 import { createMeal } from "../../../actions/meals";
 
 const AddMeal = () => {
   const history = useHistory();
+  const user = JSON.parse(localStorage.getItem("profile"));
+
+  if (!user) {
+    history.push("/auth");
+  }
   const dispatch = useDispatch();
 
   const [meal, setMeal] = useState({
     details: "",
-    title: "",
-    date: moment(Date.now()).format("yyyy-MM-DD"),
+    title: "Desayuno",
+    date: dayjs(Date.now()).format("YYYY-MM-DD"),
     proteins: 0,
     fat: 0,
     carbos: 0,
@@ -33,7 +38,7 @@ const AddMeal = () => {
 
   return (
     <>
-      <h1 className="main-title">Agregar comida.</h1>
+      <h1 className="main-title">Agregar comida</h1>
       <div className="list-container">
         <form onSubmit={handleSubmit}>
           <div className="form-row">
@@ -49,20 +54,21 @@ const AddMeal = () => {
             </div>
 
             <div className="form-row-item">
-              <label>Titulo</label>
-              <input
-                required
-                type="text"
-                name="title"
-                value={meal.title}
-                onChange={handleChange}
-              />
+              <label>Tipo</label>
+              <select value={meal.title} name="title" onChange={handleChange}>
+                <option value="Desayuno">Desayuno</option>
+                <option value="Almuerzo">Almuerzo</option>
+                <option value="Merienda">Merienda</option>
+                <option value="Snack">Snack</option>
+                <option value="Cena">Cena</option>
+                <option value="Otro">Otro</option>
+              </select>
             </div>
           </div>
 
           <div className="form-row">
             <div className="form-row-item">
-              <label>Detalles</label>
+              <label>Comida</label>
               <input
                 required
                 type="text"

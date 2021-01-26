@@ -3,7 +3,7 @@ import Meal from "../models/meal.js";
 
 export const getMeals = async (req, res) => {
   try {
-    const meals = await Meal.find().sort({ date: -1 });
+    const meals = await Meal.find({ creator: req.userId }).sort({ date: -1 });
 
     res.status(200).json(meals);
   } catch (error) {
@@ -13,7 +13,11 @@ export const getMeals = async (req, res) => {
 
 export const createMeal = async (req, res) => {
   const meal = req.body;
-  const newMeal = new Meal(meal);
+  const newMeal = new Meal({
+    ...meal,
+    creator: req.userId,
+    createdAt: new Date().toISOString(),
+  });
   try {
     await newMeal.save();
     res.status(201).json(newMeal);

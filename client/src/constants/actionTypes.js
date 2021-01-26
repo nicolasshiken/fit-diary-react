@@ -9,3 +9,7 @@ export const CREATE_MEAL = "CREATE_MEAL";
 export const FETCH_MEALS = "FETCH_MEAL";
 export const UPDATE_MEAL = "UPDATE_MEAL";
 export const DELETE_MEAL = "DELETE_MEAL";
+
+// AUTH
+export const AUTH = "AUTH";
+export const LOGOUT = "LOGOUT";

@@ -117,10 +117,6 @@ nav {
   transition: transform 150ms 0ms, -webkit-transform 150ms 0ms;
 }
 
-.nav-item:last-of-type {
-  margin: 0;
-}
-
 .show {
   -webkit-transform: scale(1);
           transform: scale(1);
