@@ -13,7 +13,7 @@ const Auth = () => {
 
   const dispatch = useDispatch();
 
-  const [isSignUp, setIsSignUp] = useState(false);
+  const [isSignUp, setIsSignUp] = useState(true);
   const [formData, setFormData] = useState({
     email: "",
     firstName: "",

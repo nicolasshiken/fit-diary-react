@@ -11,8 +11,8 @@ img {
   max-height: 100%;
 }
 
-a {
-  all: unset;
+button {
+  cursor: pointer;
 }
 
 @import url("https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap");
@@ -76,6 +76,7 @@ body {
     color: var(--clr-main);
     text-shadow: var(--txt-shadow);
     text-decoration: underline;
+    cursor: pointer;
   }
 }
 
@@ -87,6 +88,13 @@ body {
   justify-content: center;
   width: 90%;
   max-width: var(--max-width);
+
+  &.home {
+    background-color: var(--clr-dark);
+    padding: 1rem;
+    border-radius: var(--border-raduis);
+    filter: var(--drop-shadow);
+  }
 }
 
 .container {
@@ -108,6 +116,7 @@ body {
   position: absolute;
   top: 0.5rem;
   right: 0;
+  cursor: pointer;
 
   img {
     height: 20px;
@@ -221,4 +230,9 @@ form {
   .small {
     font-size: 15px;
   }
+}
+
+.error.language {
+  align-self: flex-start;
+  font-weight: bold;
 }

@@ -6,6 +6,7 @@ const sessionSchema = mongoose.Schema({
     default: "",
   },
   creator: String,
+  categories: [String],
   exercises: [Object],
   createdAt: Date,
 });

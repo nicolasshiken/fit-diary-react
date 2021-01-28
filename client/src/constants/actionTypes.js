@@ -13,3 +13,7 @@ export const DELETE_MEAL = "DELETE_MEAL";
 // AUTH
 export const AUTH = "AUTH";
 export const LOGOUT = "LOGOUT";
+
+// PROFILE
+export const UPDATE_PROFILE = "UPDATE_PROFILE";
+export const GET_PROFILE = "GET_PROFILE";

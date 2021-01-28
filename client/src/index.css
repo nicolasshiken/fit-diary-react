@@ -13,8 +13,8 @@ img {
   max-height: 100%;
 }
 
-a {
-  all: unset;
+button {
+  cursor: pointer;
 }
 
 :root {
@@ -82,6 +82,7 @@ body {
   color: var(--clr-main);
   text-shadow: var(--txt-shadow);
   text-decoration: underline;
+  cursor: pointer;
 }
 
 .list-container {
@@ -101,6 +102,14 @@ body {
           justify-content: center;
   width: 90%;
   max-width: var(--max-width);
+}
+
+.list-container.home {
+  background-color: var(--clr-dark);
+  padding: 1rem;
+  border-radius: var(--border-raduis);
+  -webkit-filter: var(--drop-shadow);
+          filter: var(--drop-shadow);
 }
 
 .container {
@@ -134,6 +143,7 @@ body {
   position: absolute;
   top: 0.5rem;
   right: 0;
+  cursor: pointer;
 }
 
 .container-buttons img {
@@ -282,5 +292,11 @@ form {
 
 .form-row-item .small {
   font-size: 15px;
+}
+
+.error.language {
+  -ms-flex-item-align: start;
+      align-self: flex-start;
+  font-weight: bold;
 }
 /*# sourceMappingURL=index.css.map */

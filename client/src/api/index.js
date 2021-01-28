@@ -1,9 +1,10 @@
 import axios from "axios";
+// eslint-disable-next-line
+import { baseURL, baseURL_DEV } from "./baseURL";
 
-const API = axios.create({ baseURL: "http://localhost:5000" });
-// const API = axios.create({
-//   baseURL: "https://demo-fit-diary-api.herokuapp.com",
-// });
+const API = axios.create({
+  baseURL_DEV,
+});
 
 API.interceptors.request.use((req) => {
   if (localStorage.getItem("profile")) {
@@ -37,3 +38,9 @@ export const updateMeal = (_id, updatedMeal) =>
 
 export const signIn = (formData) => API.post("/auth/signin", formData);
 export const signUp = (formData) => API.post("/auth/signup", formData);
+
+// Profile
+
+export const updateProfile = (formData) =>
+  API.patch("/profile/update", formData);
+export const getProfile = () => API.get("/profile");

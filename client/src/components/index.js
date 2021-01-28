@@ -12,3 +12,4 @@ export { default as MealList } from "./Meals/MealList/MealList";
 export { default as AddMeal } from "./Meals/AddMeal/AddMeal";
 export { default as MealSummary } from "./Meals/MealSummary/MealSummary";
 export { default as Auth } from "./Auth/Auth";
+export { default as Profile } from "./Profile/Profile";

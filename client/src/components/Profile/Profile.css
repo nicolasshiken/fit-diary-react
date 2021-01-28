@@ -1,0 +1,31 @@
+.profile-item-container {
+  position: relative;
+  margin: 0.5rem 0;
+  background-color: var(--clr-white);
+  width: 100%;
+  padding: 16px 24px;
+  border-radius: var(--border-raduis);
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+}
+
+.profile-item-container h2 {
+  margin: 0;
+  margin-bottom: 1rem;
+}
+
+.profile-item-container h3 {
+  margin: 0.25rem 0;
+}
+/*# sourceMappingURL=Profile.css.map */

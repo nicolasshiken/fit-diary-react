@@ -2,6 +2,7 @@ import bcrypt from "bcryptjs";
 import jwt from "jsonwebtoken";
 import User from "../models/user.js";
 import dotenv from "dotenv";
+import Profile from "../models/profile.js";
 
 dotenv.config();
 const jwtKey = process.env.JWT_SECRET_KEY;
@@ -26,7 +27,10 @@ export const signIn = async (req, res) => {
       return res.status(400).json({ message: "Invalid password" });
 
     const token = jwt.sign(
-      { email: existingUser.email, id: existingUser._id },
+      {
+        email: existingUser.email,
+        id: existingUser._id,
+      },
       jwtKey,
       { expiresIn: "12h" }
     );
@@ -54,11 +58,13 @@ export const signUp = async (req, res) => {
       name: `${firstName} ${lastName}`,
     });
 
+    const profile = await Profile.create({ user: result._id.toString() });
+
     const token = jwt.sign({ email: result.email, id: result._id }, jwtKey, {
       expiresIn: "12h",
     });
 
-    res.status(200).json({ result, token });
+    res.status(200).json({ result, profile, token });
   } catch (error) {
     res.status(500).json({ message: "Something went wrong" });
   }

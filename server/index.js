@@ -6,6 +6,7 @@ import dotenv from "dotenv";
 import sessionRoutes from "./routes/sessions.js";
 import mealRoutes from "./routes/meals.js";
 import userRoutes from "./routes/auth.js";
+import profileRoutes from "./routes/profile.js";
 
 const app = express();
 dotenv.config();
@@ -17,6 +18,7 @@ app.use(cors());
 app.use("/sessions", sessionRoutes);
 app.use("/meals", mealRoutes);
 app.use("/auth", userRoutes);
+app.use("/profile", profileRoutes);
 
 app.get("/", (req, res) => {
   res.send("Hello to FIT Diary API");

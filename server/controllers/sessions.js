@@ -30,6 +30,7 @@ export const createSession = async (req, res) => {
 
 export const getSession = async (req, res) => {
   const { id: _id } = req.params;
+
   if (!mongoose.Types.ObjectId.isValid(_id))
     return res.status(404).send("No session with that ID was found");
 

@@ -1,31 +1,17 @@
-import React, { useEffect } from "react";
 import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
-import { useDispatch } from "react-redux";
 import {
   AddSession,
   Navbar,
   SessionDetails,
   SessionList,
   DemoHome,
-  ComingSoon,
   AddMeal,
   MealList,
   Auth,
+  Profile,
 } from "./components";
-import { getSessions } from "./actions/sessions";
-import { getMeals } from "./actions/meals";
 
 function App() {
-  const user = JSON.parse(localStorage.getItem("profile"));
-  const dispatch = useDispatch();
-
-  useEffect(() => {
-    if (user?.result?.name) {
-      dispatch(getSessions());
-      dispatch(getMeals());
-    }
-  }, [dispatch, user?.result?.name]);
-
   return (
     <Router>
       <Navbar />
@@ -59,9 +45,8 @@ function App() {
             <Auth />
           </Route>
 
-          {/* Coming soon */}
           <Route exact path="/profile">
-            <ComingSoon />
+            <Profile />
           </Route>
         </Switch>
       </div>

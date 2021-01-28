@@ -3,7 +3,9 @@ import Meal from "../models/meal.js";
 
 export const getMeals = async (req, res) => {
   try {
-    const meals = await Meal.find({ creator: req.userId }).sort({ date: -1 });
+    const meals = await Meal.find({ creator: req.userId }).sort({
+      date: -1,
+    });
 
     res.status(200).json(meals);
   } catch (error) {

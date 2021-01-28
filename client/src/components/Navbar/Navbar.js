@@ -5,13 +5,23 @@ import Logo from "../../images/logo.png";
 import Menu from "../../images/menu.svg";
 import "./navbar.css";
 import decode from "jwt-decode";
+import { getSessions } from "../../actions/sessions";
+import { getMeals } from "../../actions/meals";
+import { getProfile } from "../../actions/profile";
 
 const Navbar = () => {
   const location = useLocation();
   const dispatch = useDispatch();
   const history = useHistory();
 
-  const [user, setUser] = useState(JSON.parse(localStorage.getItem("profile")));
+  const user = JSON.parse(localStorage.getItem("profile"));
+
+  if (user?.result?.name) {
+    dispatch(getSessions());
+    dispatch(getMeals());
+    dispatch(getProfile());
+  }
+
   const [showNavbar, setShowNavbar] = useState(false);
 
   const handleOpenNav = () => {
@@ -33,7 +43,6 @@ const Navbar = () => {
       }
     }
 
-    setUser(JSON.parse(localStorage.getItem("profile")));
     // eslint-disable-next-line
   }, [location]);
 
