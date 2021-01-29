@@ -1,4 +1,3 @@
-import "./addExerciseForm.css";
 import addCircle from "../../../images/add_circle.svg";
 import { useEffect } from "react";
 

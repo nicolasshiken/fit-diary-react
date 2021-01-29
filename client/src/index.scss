@@ -212,6 +212,14 @@ form {
     width: 100%;
   }
 
+  div {
+    display: flex;
+
+    img {
+      height: 2rem;
+    }
+  }
+
   input,
   select {
     border-radius: var(--border-raduis);

@@ -273,6 +273,16 @@ form {
   width: 100%;
 }
 
+.form-row-item div {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+}
+
+.form-row-item div img {
+  height: 2rem;
+}
+
 .form-row-item input,
 .form-row-item select {
   border-radius: var(--border-raduis);

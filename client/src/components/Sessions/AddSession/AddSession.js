@@ -45,12 +45,7 @@ const AddSession = () => {
           session.exercises.map((exercise) => (
             <ExerciseSummary
               key={exercise.id}
-              id={exercise.id}
               ableToDelete={true}
-              name={exercise.name}
-              weight={exercise.weight}
-              amount={exercise.amount}
-              sets={exercise.sets}
               setSession={setSession}
               session={session}
               setCurrentId={setCurrentId}

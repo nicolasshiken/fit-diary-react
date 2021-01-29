@@ -38,14 +38,7 @@ const SessionDetails = () => {
               <p>Editar sesión</p>
             </div>
             {session.exercises.map((exercise) => (
-              <ExerciseSummary
-                name={exercise.name}
-                id={exercise.id}
-                amount={exercise.amount}
-                weight={exercise.weight}
-                sets={exercise.sets}
-                key={exercise.id}
-              />
+              <ExerciseSummary key={exercise.id} exercise={exercise} />
             ))}
             <Link to="/sessions" className="error">
               Volver a sesiones.

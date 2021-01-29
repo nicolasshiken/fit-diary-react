@@ -3,17 +3,12 @@ import deleteBtn from "../../../images/delete.svg";
 import editBtn from "../../../images/edit.svg";
 
 const ExerciseSummary = ({
-  name,
-  category,
-  weight,
-  amount,
-  sets,
   ableToDelete,
   id,
   setSession,
   session,
   setCurrentId,
-  setExercise,
+  exercise,
 }) => {
   const handleDelete = (id) => {
     if (window.confirm("Seguro desea eliminar este ejercicio?")) {
@@ -30,16 +25,16 @@ const ExerciseSummary = ({
   return (
     <div className="container exercise">
       <div className="exercise-item">
-        <p className="exercise-details">{name}</p>
+        <p className="exercise-details">{exercise.name}</p>
       </div>
       <div className="exercise-item">
-        <p className="exercise-details">{weight}</p>
+        <p className="exercise-details">{exercise.weight}</p>
       </div>
       <div className="exercise-item">
-        <p className="exercise-details">{amount}</p>
+        <p className="exercise-details">{exercise.amount}</p>
       </div>
       <div className="exercise-item">
-        <p className="exercise-details">{sets}</p>
+        <p className="exercise-details">{exercise.sets}</p>
       </div>
       {ableToDelete ? (
         <div className="exercise-btn-container">
